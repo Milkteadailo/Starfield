@@ -31,15 +31,15 @@ class NormalParticle implements Particle
   float myX, myY, speed, angle;
   NormalParticle()
   {
-    myX=550;
-    myY=50;
-    speed= (float) (Math.random()*.5);
+    myX=500;
+    myY=500;
+    speed= (float) (Math.random()*30);
     angle= (float)(Math.random()*2*PI);
   }
   public void move()
   {
     myX+=(Math.sin(angle)*5*PI);
-    myY+=(Math.cos(angle)*15*PI);
+    myY+=(Math.cos(angle)*5*PI);
     angle=angle+0.1;
   }
   public void show()
@@ -48,7 +48,15 @@ class NormalParticle implements Particle
     int r = (int)(Math.random()*1);
     int t = (int)(Math.random()*1);
     fill (a, r, t);
-    ellipse ((float)myX, (float)myY, 10, 10);
+    ellipse ((float)myX, (float)myY, 20, 20);
+    ellipse((float)myX,(float)myY+50 , 20, 20);
+    ellipse((float)myX,(float)myY-50 , 20, 20);
+    ellipse ((float)myX, (float)myY+100, 10, 10);
+    ellipse((float)myX,(float)myY-100 , 20, 20);
+    ellipse ((float)myX, (float)myY+150, 10, 10);
+    ellipse((float)myX,(float)myY-150 , 20, 20);
+    ellipse ((float)myX, (float)myY-200, 10, 10);
+    ellipse((float)myX,(float)myY-250 , 10, 10);
   }
 }
 class OddballParticle implements Particle
@@ -68,4 +76,20 @@ class OddballParticle implements Particle
     rect(random(width),random(height),10,10);
   }
 }
-//class JumboParticle implements Particle
+class JumboParticle implements Particle
+{
+   float myX, myY,angle;
+  JumboParticle()
+  {
+    myX=width;
+    myY=height;
+
+  }
+  public void move()
+  {}
+  public void show()
+  {
+    fill(255, 0, 0);
+    ellipse(myX, myY, 50, 50);
+  }
+}
